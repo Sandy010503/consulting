@@ -1,0 +1,18 @@
+<p>client works!</p>
+<button (click)="restData.getConsultantDetails()">Get Booking Info</button>
+
+<div style="background-color: blanchedalmond;">
+    <div *ngFor="let item of restData.bookingdata" style= "border: 10px solid black;">
+        <h2>PNR No: {{ item.userId }}</h2>
+        <!-- <h2>P ID: {{ item.passengerId }}</h2>
+        <h2>F ID : {{item.flightId}}</h2>
+        <h2>F Date : {{item.flightDate}}</h2>
+        <h2>Status : {{item.flightStatus}}</h2> -->
+        
+    </div>
+</div>
+
+
+  
+
+

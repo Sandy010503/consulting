@@ -1,0 +1,19 @@
+<br>
+<br>
+<div id="logindiv">
+
+<div class="login-container">
+    <!-- <h1>Welcome Back</h1> -->
+    <img src="Images/loginlogo.png" alt="User Logo" class="user-logo">
+    <h6>Admin</h6>
+    <form (ngSubmit)="onSubmit(loginForm)" #loginForm="ngForm">
+      <br>
+      <input type="username" placeholder="Username" required ngModel name="username">
+      <br>
+      <input type="password" placeholder="Password" required ngModel name="password">
+      <br>
+      <br><button type="submit">Login</button>
+    </form>
+  </div>
+ 
+</div>
