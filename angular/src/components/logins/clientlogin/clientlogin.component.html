@@ -8,12 +8,14 @@
     <h6>Client</h6>
     <form (ngSubmit)="onSubmit()" #loginForm="ngForm">
       <br>
-      <input type="username" placeholder="Username" required ngModel name="username">
+      <input type="username" placeholder="Username" required ngModel name="userName">
       <br>
-      <input type="password" placeholder="Password" required ngModel name="password">
+      <input type="password" placeholder="Password" required ngModel name="userPassword">
       <br>
       <br><button type="submit">Login</button>
     </form>
   </div>
  
 </div>
+
+<router-outlet></router-outlet>

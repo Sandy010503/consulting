@@ -1,18 +1,27 @@
-<p>client works!</p>
-<button (click)="restData.getConsultantDetails()">Get Booking Info</button>
-
-<div style="background-color: blanchedalmond;">
-    <div *ngFor="let item of restData.bookingdata" style= "border: 10px solid black;">
-        <h2>PNR No: {{ item.userId }}</h2>
-        <!-- <h2>P ID: {{ item.passengerId }}</h2>
-        <h2>F ID : {{item.flightId}}</h2>
-        <h2>F Date : {{item.flightDate}}</h2>
-        <h2>Status : {{item.flightStatus}}</h2> -->
-        
-    </div>
+<!-- <button (click)="restData.getConsultantDetails()">Get Booking Info</button> -->
+<div style="display: flex; justify-content: center; margin-top: 20px;">
+    <button (click)="restData.getConsultantDetails()">Get Booking Info</button>
 </div>
 
-
-  
-
+<div style="margin-top: 20px;">
+    <table style="width: 100%; border-collapse: collapse; background-color: blanchedalmond;">
+        <thead>
+            <tr>
+                <th style="border: 2px solid black; padding: 10px; text-align: left;">Consultant Id</th>
+                <th style="border: 2px solid black; padding: 10px; text-align: left;">Years of Experience</th>
+                <th style="border: 2px solid black; padding: 10px; text-align: left;">Rating</th>
+                <th style="border: 2px solid black; padding: 10px; text-align: left;">Projects Completed</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of restData.bookingdata">
+                <td style="border: 2px solid black; padding: 10px;">{{ item.consultantId }}</td>
+                <td style="border: 2px solid black; padding: 10px;">{{ item.profileInfo }}</td>
+                <td style="border: 2px solid black; padding: 10px;">{{ item.rating }}</td>
+                <td style="border: 2px solid black; padding: 10px;">{{ item.totalProjects }}</td>
+                
+            </tr>
+        </tbody>
+    </table>
+</div>
 
