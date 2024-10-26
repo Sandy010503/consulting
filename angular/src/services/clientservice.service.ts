@@ -30,25 +30,62 @@ export class ClientserviceService {
   httpOptions = {
     headers: new HttpHeaders({'Content-Type':'application/json'})
   }
-  registerDetails(addInfo:any)
-  {
 
-    let data = JSON.stringify(addInfo.value);
+  consuntantinfo:any;
+
+  registerDetails(addInfo: any) {
+    const data = JSON.stringify(addInfo.value);
+    const id = JSON.stringify(addInfo.value.userId)
     console.log(data);
-    this._https.post("https://consultantwebapiazure.azurewebsites.net/api/Users",data,this.httpOptions)
-    .subscribe(response => {
-      console.log('added',response);
-      alert("added");
-    })
-  }
+  
+    // First API call to register the user
+    this._https.post("https://consultantwebapiazure.azurewebsites.net/api/Users", data, this.httpOptions)
+      .subscribe(response =>
+      {
+        console.log('User added', response);
+        // console.log(JSON.stringify(response))
+        alert("User registered");
+        this.consuntantinfo= response;
+        console.log("id",this.consuntantinfo.userId)
 
-  //Login
+        
+  
+        // Check if the user role is Consultant
+        if (addInfo.value.userRole === 'Consultant') 
+        {
+          const consultantData = {
+            userId: this.consuntantinfo.userId
+
+
+          }
+          console.log("consultantData", consultantData);
+         
+          this._https.post("https://consultantwebapiazure.azurewebsites.net/api/Consultants",consultantData,this.httpOptions)
+          .subscribe(response =>{
+
+            console.log("consultant added",response);
+            alert("con added")
+          });
+  
+         
+        }
+      });
+  }
+  
+
+
+
+
+
+  
+
+  //clientLogin
 
   redirecttologinpage(){
     this.router.navigate(['/client']);
   }
   customerId:any;
-  loginDetails(loginInfo:any)
+  clientloginDetails(loginInfo:any)
   {
 
     console.log(loginInfo.value);
@@ -79,4 +116,10 @@ export class ClientserviceService {
       })
     ).subscribe(); // Subscribe at the end to trigger the request
   }
+
 }
+
+
+
+
+

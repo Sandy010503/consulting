@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { RouterOutlet } from '@angular/router';
+import { Router, RouterOutlet } from '@angular/router';
+import { ClientserviceService } from '../../../services/clientservice.service';
 
 @Component({
   selector: 'app-clientlogin',
@@ -10,10 +11,12 @@ import { RouterOutlet } from '@angular/router';
   styleUrl: './clientlogin.component.css'
 })
 export class ClientloginComponent {
-  onSubmit() {
-    // Handle login logic here
-    console.log('Form submitted');
-    alert('Submitted')
+  restData:ClientserviceService;
+
+
+  constructor(restDataref:ClientserviceService,private router:Router) {
+    this.restData=restDataref;
   }
+  
 
 }

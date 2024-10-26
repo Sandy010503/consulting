@@ -9,6 +9,7 @@ import { NgFor } from '@angular/common';
   templateUrl: './client.component.html',
   styleUrl: './client.component.css'
 })
+
 export class ClientComponent {
   restData:ClientserviceService;
   userdata: any;

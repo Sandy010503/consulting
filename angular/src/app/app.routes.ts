@@ -9,6 +9,7 @@ import { ClientloginComponent } from '../components/logins/clientlogin/clientlog
 import { ConsultantloginComponent } from '../components/logins/consultantlogin/consultantlogin.component';
 import { AdminComponent } from '../components/admin/admin.component';
 import { ClientComponent } from '../components/client/client.component';
+import { ConsultantComponent } from '../components/consultant/consultant.component';
 
 export const routes: Routes = [
     { path: 'mainlogin', component: MainloginComponent },
@@ -20,5 +21,6 @@ export const routes: Routes = [
   {path: 'consultantlogin', component:ConsultantloginComponent},
   {path:'admin', component:AdminComponent},
   {path:'client', component:ClientComponent},
+  {path:'consultant', component:ConsultantComponent},
   { path: 'mainpage', redirectTo: '/mainpage', pathMatch: 'full' }
 ];
